@@ -1,245 +1,196 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nguyen Viet Hoang | Backend Developer</title>
-  <meta name="description" content="Nguyen Viet Hoang - .NET Backend Developer from Ho Chi Minh City, growing into a Full-Stack Developer.">
-  <meta property="og:title" content="Nguyen Viet Hoang | Backend Developer">
-  <meta property="og:description" content=".NET Backend Developer - ASP.NET Core, EF Core, SignalR, React.">
+  <title>Nguyen Viet Hoang | Backend Developer (.NET)</title>
+  <meta name="description" content="Nguyen Viet Hoang - Backend Developer (.NET) based in Ho Chi Minh City. ASP.NET Core, Entity Framework Core, SignalR, React.">
+  <meta property="og:title" content="Nguyen Viet Hoang | Backend Developer (.NET)">
+  <meta property="og:description" content="Backend Developer (.NET) - ASP.NET Core, EF Core, SignalR, React.">
   <meta property="og:image" content="assets/avatar.jpg">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23512BD4'/><text x='16' y='22' font-family='monospace' font-size='15' font-weight='700' fill='white' text-anchor='middle'>VH</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23512BD4'/><text x='16' y='21.5' font-family='Arial' font-size='13' font-weight='700' fill='white' text-anchor='middle'>VH</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    try {
+      const saved = localStorage.getItem("theme");
+      document.documentElement.dataset.theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    } catch { /* storage unavailable */ }
+  </script>
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a href="#top" class="logo">&lt;VietHoang /&gt;</a>
-      <nav class="nav-links" id="navLinks">
+  <div class="toolbar">
+    <button class="tool" id="langToggle" aria-label="Switch language">
+      <span data-lang="en">EN</span><span class="sep">|</span><span data-lang="vi">VI</span>
+    </button>
+    <button class="tool icon" id="themeToggle" aria-label="Toggle light/dark theme">
+      <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+
+  <div class="layout">
+    <!-- Profile sidebar -->
+    <aside class="profile">
+      <img class="avatar" src="assets/avatar.jpg" alt="Portrait of Nguyen Viet Hoang" width="600" height="750">
+      <h1 data-i18n="name">Nguyen Viet Hoang</h1>
+      <p class="title" data-i18n="title">Backend Developer · .NET</p>
+      <p class="summary" data-i18n="summary">I build reliable, maintainable backend systems with ASP.NET Core and am growing toward full-stack development.</p>
+
+      <ul class="facts">
+        <li><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="location">Thu Duc City, Ho Chi Minh City</span></li>
+        <li><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg><a href="mailto:hoangnv10052004@gmail.com">hoangnv10052004@gmail.com</a></li>
+        <li><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+84775743304">+84 775 743 304</a></li>
+        <li class="available"><span class="dot"></span><span data-i18n="available">Available for full-time roles</span></li>
+      </ul>
+
+      <div class="actions">
+        <a class="btn primary" href="assets/Nguyen_Viet_Hoang_CV.pdf" download>
+          <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg><span data-i18n="cv">Download CV</span>
+        </a>
+        <a class="btn" href="mailto:hoangnv10052004@gmail.com" data-i18n="email">Email me</a>
+      </div>
+
+      <div class="socials">
+        <a href="https://github.com/VietHoangDev1005" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" class="fill"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+        <a href="https://www.linkedin.com/in/nguyenviethoang" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" class="fill"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a>
+        <a href="https://www.facebook.com/viethoang.ng1005/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" class="fill"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a>
+      </div>
+
+      <nav class="toc" id="toc">
         <a href="#about" data-i18n="nav.about">About</a>
         <a href="#experience" data-i18n="nav.experience">Experience</a>
         <a href="#projects" data-i18n="nav.projects">Projects</a>
         <a href="#skills" data-i18n="nav.skills">Skills</a>
         <a href="#education" data-i18n="nav.education">Education</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
-      <div class="nav-actions">
-        <button class="pill" id="langToggle" aria-label="Switch language">
-          <span data-lang="en">EN</span><span class="sep">/</span><span data-lang="vi">VI</span>
-        </button>
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle light/dark theme">
-          <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-          <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        </button>
-        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-          <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
+    </aside>
 
-  <main id="top">
-    <!-- Hero -->
-    <section class="hero container">
-      <div class="hero-text">
-        <p class="mono tag"><span class="dot"></span><span data-i18n="hero.status">Open to Backend Developer roles</span></p>
-        <h1 data-i18n="hero.name">Nguyen Viet Hoang</h1>
-        <p class="mono role">&gt; <span id="typed"></span><span class="caret">_</span></p>
-        <p class="lead" data-i18n="hero.lead">Software Engineering graduate from FPT University building web systems end-to-end with ASP.NET Core, Entity Framework Core and React. I care about clean, maintainable architecture and I'm growing toward becoming a Full-Stack Developer.</p>
-        <p class="meta">
-          <span><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="hero.location">Thu Duc City, Ho Chi Minh City, Vietnam</span></span>
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="assets/Nguyen_Viet_Hoang_CV.pdf" download>
-            <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg><span data-i18n="hero.cv">Download CV</span>
-          </a>
-          <a class="btn ghost" href="#contact" data-i18n="hero.contact">Contact me</a>
-        </div>
-        <div class="socials">
-          <a href="https://github.com/VietHoangDev1005" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" class="fill"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg></a>
-          <a href="https://www.linkedin.com/in/nguyenviethoang" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" class="fill"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a>
-          <a href="https://www.facebook.com/viethoang.ng1005/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" class="fill"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a>
-          <a href="mailto:hoangnv10052004@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg></a>
-        </div>
-      </div>
-      <div class="hero-photo">
-        <div class="photo-frame">
-          <img src="assets/avatar.jpg" alt="Portrait of Nguyen Viet Hoang" width="600" height="750">
-        </div>
-        <div class="code-card mono" aria-hidden="true">
-<span class="k">var</span> dev = <span class="k">new</span> <span class="t">Developer</span> {
-  Stack = <span class="s">".NET 8"</span>,
-  Goal  = <span class="s">"Full-Stack"</span>
-};</div>
-      </div>
-    </section>
+    <main class="content">
+      <section id="about">
+        <h2 data-i18n="nav.about">About</h2>
+        <p data-i18n="about.p1">I'm a Software Engineering graduate from FPT University with hands-on experience building web systems end-to-end - from REST APIs and real-time features with SignalR to payment integrations and AI/OCR services. I completed an internship at FPT Software and worked as a freelance full-stack developer on toptutor.ai, a live tutoring platform.</p>
+        <p data-i18n="about.p2">I'm sociable, self-driven and take full ownership of what I build. I care about clean architecture and readable code, learn new technologies on my own, and work well in teams - I led my team to Top 3 at FPT-U Pitch Day. My goal is to grow from a strong backend foundation into a well-rounded full-stack developer.</p>
+      </section>
 
-    <!-- Stats -->
-    <section class="container stats">
-      <div class="stat"><b>2</b><span data-i18n="stats.projects">full-stack products shipped</span></div>
-      <div class="stat"><b>50+</b><span data-i18n="stats.bugs">defects found at FPT Software</span></div>
-      <div class="stat"><b>Top 3</b><span data-i18n="stats.pitch">FPT-U Pitch Day (Team Lead)</span></div>
-      <div class="stat"><b>3.0</b><span data-i18n="stats.gpa">GPA / 4.0 - FPT University</span></div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section container">
-      <h2 class="section-title"><span class="mono">01.</span> <span data-i18n="about.title">About me</span></h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p data-i18n="about.p1">I'm a sociable, self-driven developer who takes full ownership of my work. From an internship at FPT Software to freelancing on a live tutoring platform, I've learned to turn requirements into reliable backend systems - real-time features with SignalR, payment integrations, and AI/OCR services.</p>
-          <p data-i18n="about.p2">I enjoy designing clean, maintainable systems, picking up new technologies on my own, and working closely with teammates toward shared goals. My next step is to deepen my front-end skills and grow into a well-rounded Full-Stack Developer.</p>
-        </div>
-        <ul class="traits">
-          <li><b data-i18n="about.t1">Ownership &amp; responsibility</b><span data-i18n="about.t1d">Takes a feature from design to deployment and stands behind its quality.</span></li>
-          <li><b data-i18n="about.t2">Self-learner</b><span data-i18n="about.t2d">Built FashionStyle solo end-to-end and completed a FullStack .NET program at CyberSoft.</span></li>
-          <li><b data-i18n="about.t3">Team player &amp; leader</b><span data-i18n="about.t3d">Sociable, communicates well, and led a team to Top 3 at FPT-U Pitch Day.</span></li>
-          <li><b data-i18n="about.t4">Detail-oriented</b><span data-i18n="about.t4d">Reported 50+ defects during the internship and writes clean, documented code.</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="section container">
-      <h2 class="section-title"><span class="mono">02.</span> <span data-i18n="exp.title">Experience</span></h2>
-      <ol class="timeline">
-        <li>
-          <div class="tl-head">
+      <section id="experience">
+        <h2 data-i18n="nav.experience">Experience</h2>
+        <div class="entry">
+          <span class="when" data-i18n="exp.tt.date">May 2026 - Sep 2026</span>
+          <div>
             <h3><span data-i18n="exp.tt.role">Full-Stack Developer (Freelance)</span> · <a href="https://toptutor.ai/" target="_blank" rel="noopener">toptutor.ai</a></h3>
-            <span class="mono date" data-i18n="exp.tt.date">May 2026 - Sep 2026</span>
+            <p data-i18n="exp.tt.desc">Built Tutora, a platform that connects tutors with students, as part of a 5-member team.</p>
+            <ul>
+              <li data-i18n="exp.tt.b1">Developed ASP.NET Core services with Clean Architecture: real-time lesson chat, escrow payments via PayOS and dispute settlement.</li>
+              <li data-i18n="exp.tt.b2">Built React interfaces for live sessions, certificate vetting and admin dashboards.</li>
+              <li data-i18n="exp.tt.b3">Integrated AI/OCR identity verification and OTP confirmation for sensitive account changes.</li>
+            </ul>
           </div>
-          <p data-i18n="exp.tt.desc">Built Tutora (toptutor.ai), an online platform that connects tutors with students, in a 5-member team.</p>
-          <ul>
-            <li data-i18n="exp.tt.b1">Developed backend services in ASP.NET Core with Clean Architecture: real-time chat, escrow payments (PayOS), dispute settlement.</li>
-            <li data-i18n="exp.tt.b2">Built React screens for live sessions, certificate vetting and admin dashboards.</li>
-            <li data-i18n="exp.tt.b3">Integrated AI/OCR identity verification and OTP security for sensitive account changes.</li>
-          </ul>
-        </li>
-        <li>
-          <div class="tl-head">
+        </div>
+        <div class="entry">
+          <span class="when" data-i18n="exp.fpt.date">May 2025 - Oct 2025</span>
+          <div>
             <h3><span data-i18n="exp.fpt.role">C# .NET Developer Intern</span> · FPT Software</h3>
-            <span class="mono date" data-i18n="exp.fpt.date">May 2025 - Oct 2025</span>
+            <p data-i18n="exp.fpt.desc">Worked in a 5-member Agile backend team building and testing C#/.NET RESTful APIs for a client project.</p>
+            <ul>
+              <li data-i18n="exp.fpt.b1">Identified and reported 50+ defects (API errors, class-level bugs) in Jira, helping the team prioritize fixes before release.</li>
+              <li data-i18n="exp.fpt.b2">Wrote technical documentation and reports following project guidelines.</li>
+              <li data-i18n="exp.fpt.b3">Followed GitLab branching and merge-request workflows and applied Clean Code principles in every handoff.</li>
+            </ul>
           </div>
-          <p data-i18n="exp.fpt.desc">Worked in a 5-member Agile backend team, building and testing C#/.NET RESTful APIs for a client project.</p>
-          <ul>
-            <li data-i18n="exp.fpt.b1">Identified and reported 50+ defects (API errors, class-level bugs) via Jira, helping the team prioritize fixes before release.</li>
-            <li data-i18n="exp.fpt.b2">Wrote technical documentation and reports following project guidelines.</li>
-            <li data-i18n="exp.fpt.b3">Followed GitLab branching and merge-request workflows, applying Clean Code principles in every handoff.</li>
-          </ul>
-        </li>
-      </ol>
-    </section>
+        </div>
+      </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section container">
-      <h2 class="section-title"><span class="mono">03.</span> <span data-i18n="proj.title">Featured projects</span></h2>
-      <div class="projects">
-        <article class="card project">
-          <div class="project-top">
-            <span class="mono label" data-i18n="proj.tutora.meta">Team of 5 · 2026</span>
-            <a class="live" href="https://toptutor.ai/" target="_blank" rel="noopener"><span data-i18n="proj.live">Live site</span> ↗</a>
-          </div>
-          <h3>Tutora - toptutor.ai</h3>
+      <section id="projects">
+        <h2 data-i18n="nav.projects">Projects</h2>
+        <article class="project">
+          <header>
+            <h3>Tutora <span class="muted">- toptutor.ai</span></h3>
+            <span class="when" data-i18n="proj.tutora.meta">Team of 5 · 2026</span>
+          </header>
           <p data-i18n="proj.tutora.desc">Online tutoring platform with real-time lesson chat, course-based escrow payments, AI-powered tutor verification and an admin dispute-settlement system.</p>
           <ul>
-            <li data-i18n="proj.tutora.b1">SignalR live chat &amp; notifications, interactive whiteboard (Agora Netless) with role-based drawing permissions.</li>
-            <li data-i18n="proj.tutora.b2">FPT AI eKYC + OCR Space + Groq Llama-3.3 parsing to validate tutor certificates with field-level diffing.</li>
-            <li data-i18n="proj.tutora.b3">ZaloOA ZNS phone verification and OTP re-confirmation before bank account changes.</li>
-            <li data-i18n="proj.tutora.b4">Rule-based fraud scoring for payouts, Redis caching, optimized LINQ analytics queries.</li>
+            <li data-i18n="proj.tutora.b1">SignalR chat and notifications, plus an Agora whiteboard with role-based drawing permissions.</li>
+            <li data-i18n="proj.tutora.b2">Tutor certificate validation with FPT AI eKYC, OCR Space and Groq Llama-3.3, including field-level diffing against user records.</li>
+            <li data-i18n="proj.tutora.b3">Phone verification via ZaloOA ZNS and OTP re-confirmation before bank account changes.</li>
+            <li data-i18n="proj.tutora.b4">Rule-based fraud scoring for payouts, Redis caching and optimized LINQ queries for the analytics dashboard.</li>
           </ul>
-          <div class="chips mono"><span>ASP.NET Core</span><span>SignalR</span><span>Redis</span><span>PayOS</span><span>React</span><span>Agora</span></div>
-          <div class="links">
-            <a href="https://github.com/VietHoangDev1005/Tutora-Backend" target="_blank" rel="noopener">Backend ↗</a>
-            <a href="https://github.com/VietHoangDev1005/Tutora-FE" target="_blank" rel="noopener">Frontend ↗</a>
-            <a href="https://github.com/VietHoangDev1005/CMS-Tutora-FE" target="_blank" rel="noopener">CMS ↗</a>
-          </div>
+          <p class="tags">ASP.NET Core · SignalR · Redis · PayOS · React · Agora</p>
+          <p class="links">
+            <a href="https://toptutor.ai/" target="_blank" rel="noopener" data-i18n="proj.live">Live site</a>
+            <a href="https://github.com/VietHoangDev1005/Tutora-Backend" target="_blank" rel="noopener">Backend</a>
+            <a href="https://github.com/VietHoangDev1005/Tutora-FE" target="_blank" rel="noopener">Frontend</a>
+            <a href="https://github.com/VietHoangDev1005/CMS-Tutora-FE" target="_blank" rel="noopener">CMS</a>
+          </p>
         </article>
-        <article class="card project">
-          <div class="project-top">
-            <span class="mono label" data-i18n="proj.fs.meta">Solo project · Dec 2025 - Feb 2026</span>
-          </div>
-          <h3>FashionStyle</h3>
-          <p data-i18n="proj.fs.desc">AI-integrated e-commerce platform: a .NET backend serving a cross-platform Flutter mobile app (iOS &amp; Android).</p>
+        <article class="project">
+          <header>
+            <h3>FashionStyle</h3>
+            <span class="when" data-i18n="proj.fs.meta">Solo · Dec 2025 - Feb 2026</span>
+          </header>
+          <p data-i18n="proj.fs.desc">AI-integrated e-commerce platform: a .NET backend serving a cross-platform Flutter mobile app for iOS and Android.</p>
           <ul>
-            <li data-i18n="proj.fs.b1">Google Gemini AI analyzes body profiles to recommend clothing size and style.</li>
-            <li data-i18n="proj.fs.b2">Automated bank-transfer verification with SePay API and background polling services.</li>
-            <li data-i18n="proj.fs.b3">JWT + refresh tokens, Google OAuth 2.0, OTP via SMTP; SignalR support chat.</li>
-            <li data-i18n="proj.fs.b4">Clean Architecture, Docker, deployed on Render; Flutter app for browsing, cart and checkout.</li>
+            <li data-i18n="proj.fs.b1">Google Gemini AI analyzes body profiles to recommend clothing sizes and styles.</li>
+            <li data-i18n="proj.fs.b2">Automated bank-transfer verification with the SePay API and background polling, removing manual checks.</li>
+            <li data-i18n="proj.fs.b3">Authentication with JWT and refresh tokens, Google OAuth 2.0 and OTP via SMTP; SignalR support chat.</li>
+            <li data-i18n="proj.fs.b4">Clean Architecture, containerized with Docker and deployed to Render; Flutter app for browsing, cart and checkout.</li>
           </ul>
-          <div class="chips mono"><span>.NET 8</span><span>EF Core</span><span>Gemini AI</span><span>Docker</span><span>Flutter</span></div>
-          <div class="links">
-            <a href="https://github.com/VietHoangDev1005/BE-FashionStyle" target="_blank" rel="noopener">Backend ↗</a>
-            <a href="https://github.com/VietHoangDev1005/FE-FashionStyle" target="_blank" rel="noopener">Mobile ↗</a>
-          </div>
+          <p class="tags">.NET 8 · EF Core · Gemini AI · SignalR · Docker · Flutter</p>
+          <p class="links">
+            <a href="https://github.com/VietHoangDev1005/BE-FashionStyle" target="_blank" rel="noopener">Backend</a>
+            <a href="https://github.com/VietHoangDev1005/FE-FashionStyle" target="_blank" rel="noopener">Mobile</a>
+          </p>
         </article>
-      </div>
-    </section>
+      </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section container">
-      <h2 class="section-title"><span class="mono">04.</span> <span data-i18n="skills.title">Technical skills</span></h2>
-      <div class="skills">
-        <div class="card skill"><h3 data-i18n="skills.lang">Languages</h3><div class="chips mono"><span>C# (.NET 8)</span><span>JavaScript</span><span>SQL</span><span>Java (basic)</span></div></div>
-        <div class="card skill"><h3>Back-end</h3><div class="chips mono"><span>ASP.NET Core Web API</span><span>EF Core</span><span>LINQ</span><span>SignalR</span><span>Redis</span><span>JWT / OAuth 2.0</span></div></div>
-        <div class="card skill"><h3>Front-end &amp; Mobile</h3><div class="chips mono"><span>React 18</span><span>HTML</span><span>CSS</span><span>Flutter</span></div></div>
-        <div class="card skill"><h3 data-i18n="skills.db">Databases</h3><div class="chips mono"><span>SQL Server</span><span>PostgreSQL</span></div></div>
-        <div class="card skill"><h3>Tools &amp; DevOps</h3><div class="chips mono"><span>Git</span><span>GitHub</span><span>GitLab</span><span>Docker</span><span>Render</span><span>Postman</span><span>Jira</span><span>ClickUp</span></div></div>
-        <div class="card skill"><h3 data-i18n="skills.principles">Principles</h3><div class="chips mono"><span>OOP</span><span>SOLID</span><span>Clean Architecture</span><span>Design Patterns</span><span>Clean Code</span></div></div>
-        <div class="card skill"><h3 data-i18n="skills.ai">AI-assisted development</h3><div class="chips mono"><span>GitHub Copilot</span><span>Cursor</span><span>ChatGPT</span><span>Claude</span><span>Gemini</span></div></div>
-        <div class="card skill"><h3 data-i18n="skills.soft">Soft skills &amp; languages</h3><div class="chips"><span data-i18n="skills.s1">Problem-solving</span><span data-i18n="skills.s2">Teamwork &amp; communication</span><span data-i18n="skills.s3">Self-learning</span><span data-i18n="skills.s4">English (good)</span></div></div>
-      </div>
-    </section>
+      <section id="skills">
+        <h2 data-i18n="nav.skills">Skills</h2>
+        <dl class="skills">
+          <dt data-i18n="skills.lang">Languages</dt><dd>C# (.NET 8), JavaScript, SQL, Java (basic)</dd>
+          <dt>Back-end</dt><dd>ASP.NET Core Web API, Entity Framework Core, LINQ, SignalR, Redis, JWT / OAuth 2.0</dd>
+          <dt>Front-end &amp; Mobile</dt><dd>React 18, HTML, CSS, Flutter</dd>
+          <dt data-i18n="skills.db">Databases</dt><dd>SQL Server, PostgreSQL</dd>
+          <dt>Tools &amp; DevOps</dt><dd>Git, GitHub, GitLab, Docker, Render, Postman, Jira, ClickUp</dd>
+          <dt data-i18n="skills.principles">Principles</dt><dd>OOP, SOLID, Clean Architecture, Design Patterns, Clean Code</dd>
+          <dt data-i18n="skills.soft">Soft skills</dt><dd data-i18n="skills.softd">Problem-solving, teamwork and communication, self-learning</dd>
+          <dt data-i18n="skills.langs">Spoken languages</dt><dd data-i18n="skills.langsd">Vietnamese (native), English (good reading, speaking and listening)</dd>
+        </dl>
+      </section>
 
-    <!-- Education -->
-    <section id="education" class="section container">
-      <h2 class="section-title"><span class="mono">05.</span> <span data-i18n="edu.title">Education &amp; awards</span></h2>
-      <div class="edu">
-        <div class="card">
-          <span class="mono date" data-i18n="edu.fpt.date">Sep 2022 - Nov 2026 · Graduated</span>
-          <h3>FPT University - Ho Chi Minh Campus</h3>
-          <p data-i18n="edu.fpt.desc">Bachelor of Software Engineering · GPA 3.0/4.0</p>
+      <section id="education">
+        <h2 data-i18n="nav.education">Education</h2>
+        <div class="entry">
+          <span class="when">2022 - 2026</span>
+          <div>
+            <h3>FPT University - Ho Chi Minh Campus</h3>
+            <p data-i18n="edu.fpt">Bachelor of Software Engineering · Graduated Nov 2026</p>
+          </div>
         </div>
-        <div class="card">
-          <span class="mono date">Sep 2025 - May 2026</span>
-          <h3>CyberSoft Academy</h3>
-          <p data-i18n="edu.cs.desc">FullStack .NET Developer Certificate</p>
+        <div class="entry">
+          <span class="when">2025 - 2026</span>
+          <div>
+            <h3>CyberSoft Academy</h3>
+            <p data-i18n="edu.cs">FullStack .NET Developer Certificate</p>
+          </div>
         </div>
-        <div class="card award">
-          <span class="mono date" data-i18n="edu.award.tag">Award</span>
-          <h3 data-i18n="edu.award.title">Top 3 - FPT-U Pitch Day</h3>
-          <p data-i18n="edu.award.desc">Team Lead · Venture Builder Program</p>
+        <div class="entry">
+          <span class="when" data-i18n="edu.award.tag">Award</span>
+          <div>
+            <h3 data-i18n="edu.award">Top 3 - FPT-U Pitch Day</h3>
+            <p data-i18n="edu.award.desc">Team Lead · Venture Builder Program</p>
+          </div>
         </div>
-        <div class="card">
-          <span class="mono date" data-i18n="edu.int.tag">Interests</span>
-          <h3 data-i18n="edu.int.title">Beyond code</h3>
-          <p data-i18n="edu.int.desc">Exploring new .NET technologies and software architecture · Football · Volleyball · Badminton</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section container">
-      <div class="contact card">
-        <h2><span data-i18n="contact.title">Let's work together</span></h2>
-        <p data-i18n="contact.desc">I'm looking for a Backend Developer (.NET) position. Feel free to reach out - I usually reply within a day.</p>
-        <div class="contact-list">
-          <a href="mailto:hoangnv10052004@gmail.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>hoangnv10052004@gmail.com</a>
-          <a href="tel:+84775743304"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+84 775 743 304</a>
-          <a href="https://www.linkedin.com/in/nguyenviethoang" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" class="fill"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5z"/></svg>linkedin.com/in/nguyenviethoang</a>
-          <a href="https://github.com/VietHoangDev1005" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" class="fill"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>github.com/VietHoangDev1005</a>
-        </div>
-        <button class="btn primary" id="copyEmail"><span data-i18n="contact.copy">Copy email</span></button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="container footer mono">
-    <span>© <span id="year"></span> Nguyen Viet Hoang</span>
-    <span data-i18n="footer.built">Built with HTML, CSS &amp; JavaScript</span>
-  </footer>
+      <footer class="footer">
+        <span>© <span id="year"></span> Nguyen Viet Hoang</span>
+        <span data-i18n="footer.interests">Outside work: football, volleyball, badminton.</span>
+      </footer>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
